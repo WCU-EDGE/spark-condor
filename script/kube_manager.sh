@@ -12,4 +12,3 @@ echo "/opt/keys 192.168.1.3(rw,sync,no_root_squash,no_subtree_check)" | sudo tee
 sudo systemctl restart nfs-kernel-server
 
 kubeadm init > /opt/keys/kube.log
-bash /local/repository/script/launch_network.sh
