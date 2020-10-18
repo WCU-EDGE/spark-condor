@@ -12,3 +12,7 @@ echo "/opt/keys 192.168.1.3(rw,sync,no_root_squash,no_subtree_check)" | sudo tee
 sudo systemctl restart nfs-kernel-server
 
 kubeadm init > /opt/keys/kube.log
+
+sleep 10s
+
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
