@@ -40,6 +40,14 @@ for i in range(num_nodes):
   # setup Kubernetes
   node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/script/install_kubernetes.sh"))
   node.addService(pg.Execute(shell="sh", command="sudo swapoff -a"))
+  # setup Condor
+  node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/script/install_condor.sh))
+  if i == 0:
+    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/script/central_manager.sh"))
+  else if i == 1:
+    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/script/submit_machine.sh"))
+  else:
+    node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/script/execute_machine.sh"))
   
   if i == 0:
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/script/kube_manager.sh"))
