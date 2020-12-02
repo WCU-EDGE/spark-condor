@@ -1,0 +1,2 @@
+echo "use ROLE: CentralManager" | sudo tee -a /etc/condor/config.d/51-role-cm
+echo "ALLOW_WRITE_COLLECTOR=\$(ALLOW_WRITE) condor-execute.example.com condor-submit.example.com" | sudo tee -a /etc/condor/config.d/51-role-cm
