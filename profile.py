@@ -23,9 +23,11 @@ link = request.LAN("lan")
 num_nodes = 3
 for i in range(num_nodes):
   if i == 0:
-    node = request.XenVM("head")
+    node = request.XenVM("condor-submit")
+  else if i==1:
+    node = request.XenVM("condor-cm" + str(i))
   else:
-    node = request.XenVM("worker-" + str(i))
+    node = request.XenVM("condor-execute" + str(i-1));
   node.cores = 4
   node.ram = 8192
   node.routable_control_ip = "true" 
