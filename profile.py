@@ -25,7 +25,7 @@ for i in range(num_nodes):
   if i == 0:
     node = request.XenVM("condor-submit")
   elif i == 1:
-    node = request.XenVM("condor-cm" + str(i))
+    node = request.XenVM("condor-cm")
   else:
     node = request.XenVM("condor-execute" + str(i-1));
   node.cores = 4
