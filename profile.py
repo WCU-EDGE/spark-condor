@@ -24,6 +24,8 @@ num_nodes = 3
 for i in range(num_nodes):
   if i == 0:
     node = request.XenVM("head")
+  elif i == 1:
+    node = request.XenVM("submit_machine")
   else:
     node = request.XenVM("worker-" + str(i))
   node.cores = 4
@@ -44,7 +46,7 @@ for i in range(num_nodes):
   node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/script/install_condor.sh))
   if i == 0:
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/script/central_manager.sh"))
-  else if i == 1:
+  elif i == 1:
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/script/submit_machine.sh"))
   else:
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/script/execute_machine.sh"))
