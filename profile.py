@@ -27,7 +27,7 @@ for i in range(num_nodes):
     elif i == 1:
         node = request.XenVM("submit_machine")
     else:
-        node = request.XenVM("worker-" + str(i))
+        node = request.XenVM("worker-" + str(i-1))
     node.cores = 4
     node.ram = 8192
     node.routable_control_ip = "true"
