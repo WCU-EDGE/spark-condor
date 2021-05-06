@@ -1,0 +1,12 @@
+Universe        = vanilla
+Executable      = simple
+Arguments       = 4 10
+Log             = simple.$(Process).log
+Output          = simple.$(Process).out
+Error           = simple.$(Process).error
+Queue
+
+Arguments = 4 11
+Queue
+
+Arguments = 4 12

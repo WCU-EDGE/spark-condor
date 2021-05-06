@@ -1,0 +1,1 @@
+echo "use ROLE: Submit" | sudo tee -a /etc/condor/config.d/51-role-submit
